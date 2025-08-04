@@ -106,12 +106,15 @@ int main() {
     printf("Carta 2 - %s: R$ %2.f\n",nome_cidade2,pib_per_capita2);
     
     //Teste para saber a carta vencedora
-    if (pib_per_capita1 > pib_per_capita2){ //Caso o pib per capital da carta 1 seja maior que carta 2, Carta 1 Vence
+    if (pib_per_capita1 > pib_per_capita2){ // Caso o pib per capital da carta 1 seja maior que carta 2, Carta 1 Vence
         printf("Carta 1(%s) é a vencedora !\n",nome_cidade1);
-    } else {// Se não, Carta 2 Vence
+    } else if (pib_per_capita2 > pib_per_capita1) {// Caso o pib per capital da carta 2 seja maior que carta 1, Carta 2 Vence
         printf("Carta 2(%s) é a vencedora !\n",nome_cidade2);
-    
-    }
+        }
+        else{// Se ambos os teste são falsos, ouve um empate
+            printf("Ambas a cartas tem o mesmo PIB per capita\n");
+        }
+ 
 
     return 0;
 }
