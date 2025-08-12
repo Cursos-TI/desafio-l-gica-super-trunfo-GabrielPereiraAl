@@ -24,17 +24,17 @@ int main() {
     float pib_per_capita2;
     int pontos_turisticos2;
 
-    unsigned short int opcao1, opcao2;
+    unsigned short int opcao1, opcao2, comparacao1,comparacao2;
     char nome_atributo1[30], nome_atributo2[30];
     float valor_atributo1Carta1, valor_atributo2Carta1;
     float valor_atributo1Carta2, valor_atributo2Carta2;
-    float super_poder1, super_poder2;
+  
 
-    // Cadastro da carta 1
+   // Cadastro da carta 1
     printf("\n++++ Olá, bem-vindo ao Super Trunfo! ++++\n\nCadastre a primeira carta.\n\n");
 
     printf("Digite a sigla do estado da cidade: ");
-    scanf(" %s", &estado1);
+    scanf(" %s", estado1);
 
     printf("Digite o código da carta (ex: 01): ");
     scanf("%s", codigo_carta1);
@@ -61,7 +61,7 @@ int main() {
     printf("\n\nCadastre a segunda carta.\n\n");
 
     printf("Digite a sigla do estado da cidade: ");
-    scanf(" %s", &estado2);
+    scanf(" %s", estado2);
 
     printf("Digite o código da carta (ex: 01): ");
     scanf("%s", codigo_carta2);
@@ -84,8 +84,11 @@ int main() {
     densidade_pop2 = populacao2 / area2;
     pib_per_capita2 = (pib2 * 1000000000.0f) / populacao2;
 
-    // Escolha do primeiro atributo
-    printf("\n===================== Escolha o primeiro atributo: =====================\n\n");
+
+
+    // Switch para escolha do primeiro atributo
+    printf("\n++==================++ Escolha dois atributos para comparação ++==================++\n\n");
+    printf("\n======== Escolha o primeiro atributo: ========\n");
     printf("1) População\n");
     printf("2) Área\n");
     printf("3) PIB\n");
@@ -97,31 +100,33 @@ int main() {
 
     switch (opcao1) {
         case 1:
+            comparacao1 = (populacao1>populacao2) ? 1:0;
             strcpy(nome_atributo1, "População");
-            valor_atributo1Carta1 = (float) populacao1;
-            valor_atributo1Carta2 = (float) populacao2;
             break;
         case 2:
+            comparacao1 = (area1>area2) ? 1:0;
             strcpy(nome_atributo1, "Área");
             valor_atributo1Carta1 = area1;
             valor_atributo1Carta2 = area2;
             break;
         case 3:
+            comparacao1 = (pib1>pib2) ? 1:0;
             strcpy(nome_atributo1, "PIB");
             valor_atributo1Carta1 = pib1;
             valor_atributo1Carta2 = pib2;
             break;
         case 4:
+            comparacao1 = (pib_per_capita1>pib_per_capita2) ? 1:0;
             strcpy(nome_atributo1, "PIB per capita");
             valor_atributo1Carta1 = pib_per_capita1;
             valor_atributo1Carta2 = pib_per_capita2;
             break;
         case 5:
+            comparacao1 = (pontos_turisticos1>pontos_turisticos2) ? 1:0;
             strcpy(nome_atributo1, "Pontos turísticos");
-            valor_atributo1Carta1 = (float) pontos_turisticos1;
-            valor_atributo1Carta2 = (float) pontos_turisticos2;
             break;
         case 6:
+            comparacao1 = (densidade_pop1<densidade_pop2) ? 1:0;
             strcpy(nome_atributo1, "Densidade demográfica");
             valor_atributo1Carta1 = densidade_pop1;
             valor_atributo1Carta2 = densidade_pop2;
@@ -132,7 +137,7 @@ int main() {
     }
 
     // Escolha do segundo atributo
-    printf("\n===================== Escolha o segundo atributo: =====================\n\n");
+    printf("\n======== Escolha o segundo atributo: ========\n");
     printf("1) População\n");
     printf("2) Área\n");
     printf("3) PIB\n");
@@ -149,31 +154,33 @@ int main() {
 
     switch (opcao2) {
         case 1:
+            comparacao2 = (populacao2>populacao2) ? 1:0;
             strcpy(nome_atributo2, "População");
-            valor_atributo2Carta1 = (float) populacao1;
-            valor_atributo2Carta2 = (float) populacao2;
             break;
         case 2:
+            comparacao2 = (area1>area2) ? 1:0;
             strcpy(nome_atributo2, "Área");
             valor_atributo2Carta1 = area1;
             valor_atributo2Carta2 = area2;
             break;
         case 3:
+            comparacao2 = (pib1>pib2) ? 1:0;
             strcpy(nome_atributo2, "PIB");
             valor_atributo2Carta1 = pib1;
             valor_atributo2Carta2 = pib2;
             break;
         case 4:
+            comparacao2 = (pib_per_capita1>pib_per_capita2) ? 1:0;
             strcpy(nome_atributo2, "PIB per capita");
             valor_atributo2Carta1 = pib_per_capita1;
             valor_atributo2Carta2 = pib_per_capita2;
             break;
         case 5:
+            comparacao2 = (pontos_turisticos1>pontos_turisticos2) ? 1:0;
             strcpy(nome_atributo2, "Pontos turísticos");
-            valor_atributo2Carta1 = (float) pontos_turisticos1;
-            valor_atributo2Carta2 = (float) pontos_turisticos2;
             break;
         case 6:
+            comparacao2 = (densidade_pop1<densidade_pop2) ? 1:0;
             strcpy(nome_atributo2, "Densidade demográfica");
             valor_atributo2Carta1 = densidade_pop1;
             valor_atributo2Carta2 = densidade_pop2;
@@ -183,22 +190,35 @@ int main() {
             return 1;
     }
 
-    super_poder1 = valor_atributo1Carta1 + valor_atributo2Carta1;
-    super_poder2 = valor_atributo1Carta2 + valor_atributo2Carta2;
 
     printf("\n==========++ Resultado Final ++==========\n\n");
     printf("%s x %s\n", nome_cidade1, nome_cidade2);
     printf("Atributos escolhidos: %s e %s\n", nome_atributo1, nome_atributo2);
-    printf("Valores atributos 1: %.2f   x   %.2f\n", valor_atributo1Carta1, valor_atributo1Carta2);
-    printf("Valores atributos 2: %.2f   x   %.2f\n", valor_atributo2Carta1, valor_atributo2Carta2);
-    printf("Soma dos atributos: %.2f   x   %.2f\n", super_poder1, super_poder2);
-
-    if (super_poder1 > super_poder2) {
-        printf("Vencedor é... CARTA 1!!\n");
-    } else if (super_poder1 < super_poder2) {
-        printf("Vencedor é... CARTA 2!!\n");
+    // O If abaixo testa se o nome_atributo1 é Pontos turisticos ou Populaçao, caso verdadeiro mostrará o valor_atributo em formato de int senão mostrar em float
+    if (opcao1 == 1) {
+        printf("Valores atributos 1: %lu   x   %lu\n", populacao1, populacao2);
+    } else if (opcao1 == 5) {
+        printf("Valores atributos 1: %d   x   %d\n", pontos_turisticos1, pontos_turisticos2);
     } else {
-        printf("Empate! A soma dos atributos é igual.\n");
+        printf("Valores atributos 1: %.2f   x   %.2f\n", valor_atributo1Carta1, valor_atributo1Carta2);
+    }
+    // O mesmo teste do if acima, porem referente ao nome_atributo2
+    if (opcao2 == 1) {
+        printf("Valores atributos 2: %lu   x   %lu\n", populacao1, populacao2);
+    } else if (opcao2 == 5) {
+        printf("Valores atributos 1: %d   x   %d\n", pontos_turisticos1, pontos_turisticos2);
+    } else {
+        printf("Valores atributos 2: %.2f   x   %.2f\n", valor_atributo2Carta1, valor_atributo2Carta2);
+    }
+        
+        
+
+    if (comparacao1 && comparacao2) {
+        printf("Vencedor é... CARTA 1!!\n");
+    } else if (comparacao1 != comparacao2) {
+        printf("Empate!\n");
+    } else {
+        printf("Vencedor é... CARTA 2!!\n");
     }
 
     return 0;
