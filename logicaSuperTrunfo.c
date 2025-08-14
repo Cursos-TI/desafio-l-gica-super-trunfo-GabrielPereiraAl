@@ -24,6 +24,7 @@ int main() {
     float pib_per_capita2;
     int pontos_turisticos2;
 
+    //Variaveis relacionadas aos menus switch e para resultado final
     unsigned short int opcao1, opcao2, comparacao1,comparacao2;
     char nome_atributo1[30], nome_atributo2[30];
     float valor_atributo1Carta1, valor_atributo2Carta1;
@@ -136,7 +137,7 @@ int main() {
             return 1;
     }
 
-    // Escolha do segundo atributo
+    // Switch para a escolha do segundo atributo
     printf("\n======== Escolha o segundo atributo: ========\n");
     printf("1) População\n");
     printf("2) Área\n");
@@ -190,19 +191,18 @@ int main() {
             return 1;
     }
 
-
+    //Bloco abaixo mostra as atributos selecionados da carta 1 x carta 2
     printf("\n==========++ Resultado Final ++==========\n\n");
     printf("%s x %s\n", nome_cidade1, nome_cidade2);
     printf("Atributos escolhidos: %s e %s\n", nome_atributo1, nome_atributo2);
-    // O If abaixo testa se o nome_atributo1 é Pontos turisticos ou Populaçao, caso verdadeiro mostrará o valor_atributo em formato de int senão mostrar em float
-    if (opcao1 == 1) {
+    if (opcao1 == 1) { //Testa se opção1 tem valor 1 (Pontos turisticos), caso verdadeiro mostrará o valor_atributo em formato unsigned long int
         printf("Valores atributos 1: %lu   x   %lu\n", populacao1, populacao2);
-    } else if (opcao1 == 5) {
+    } else if (opcao1 == 5) { // Senão testa se tem valor 5 (População), caso verdadeiro mostrará o valor_atributo em formato int
         printf("Valores atributos 1: %d   x   %d\n", pontos_turisticos1, pontos_turisticos2);
-    } else {
+    } else { // Caso não atenda as condições acima, mostrara em formato float
         printf("Valores atributos 1: %.2f   x   %.2f\n", valor_atributo1Carta1, valor_atributo1Carta2);
     }
-    // O mesmo teste do if acima, porem referente ao nome_atributo2
+    // Os mesmos testes do bloco acima, porem referente ao nome_atributo2
     if (opcao2 == 1) {
         printf("Valores atributos 2: %lu   x   %lu\n", populacao1, populacao2);
     } else if (opcao2 == 5) {
@@ -212,7 +212,7 @@ int main() {
     }
         
         
-
+    //Resultato final das comparações - Se na comparacao1 e comparacao2 for "verdadeiro" carta 1 vence, se uma das comparações for "falso" é empate, se as forem "falso" Carta 2 Vence
     if (comparacao1 && comparacao2) {
         printf("Vencedor é... CARTA 1!!\n");
     } else if (comparacao1 != comparacao2) {
