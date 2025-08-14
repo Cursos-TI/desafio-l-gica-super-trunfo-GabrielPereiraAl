@@ -125,42 +125,78 @@ int main() {
     scanf("%hu", &opcao1);
 
     switch (opcao1) {
-        case 1:
-            comparacao1 = (populacao1>populacao2) ? 1:0;
-            strcpy(nome_atributo1, "População");
-            break;
-        case 2:
-            comparacao1 = (area1>area2) ? 1:0;
-            strcpy(nome_atributo1, "Área");
-            valor_atributo1Carta1 = area1;
-            valor_atributo1Carta2 = area2;
-            break;
-        case 3:
-            comparacao1 = (pib1>pib2) ? 1:0;
-            strcpy(nome_atributo1, "PIB");
-            valor_atributo1Carta1 = pib1;
-            valor_atributo1Carta2 = pib2;
-            break;
-        case 4:
-            comparacao1 = (pib_per_capita1>pib_per_capita2) ? 1:0;
-            strcpy(nome_atributo1, "PIB per capita");
-            valor_atributo1Carta1 = pib_per_capita1;
-            valor_atributo1Carta2 = pib_per_capita2;
-            break;
-        case 5:
-            comparacao1 = (pontos_turisticos1>pontos_turisticos2) ? 1:0;
-            strcpy(nome_atributo1, "Pontos turísticos");
-            break;
-        case 6:
-            comparacao1 = (densidade_pop1<densidade_pop2) ? 1:0;
-            strcpy(nome_atributo1, "Densidade demográfica");
-            valor_atributo1Carta1 = densidade_pop1;
-            valor_atributo1Carta2 = densidade_pop2;
-            break;
-        default:
-            printf("Opção inválida!\n");
-            return 1;
-    }
+    case 1:
+        if (populacao1 > populacao2) {
+            comparacao1 = 1;
+        } else if (populacao1 < populacao2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "População");
+        break;
+    case 2:
+        if (area1 > area2) {
+            comparacao1 = 1;
+        } else if (area1 < area2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "Área");
+        valor_atributo1Carta1 = area1;
+        valor_atributo1Carta2 = area2;
+        break;
+    case 3:
+        if (pib1 > pib2) {
+            comparacao1 = 1;
+        } else if (pib1 < pib2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "PIB");
+        valor_atributo1Carta1 = pib1;
+        valor_atributo1Carta2 = pib2;
+        break;
+    case 4:
+        if (pib_per_capita1 > pib_per_capita2) {
+            comparacao1 = 1;
+        } else if (pib_per_capita1 < pib_per_capita2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "PIB per capita");
+        valor_atributo1Carta1 = pib_per_capita1;
+        valor_atributo1Carta2 = pib_per_capita2;
+        break;
+    case 5:
+        if (pontos_turisticos1 > pontos_turisticos2) {
+            comparacao1 = 1;
+        } else if (pontos_turisticos1 < pontos_turisticos2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "Pontos turísticos");
+        break;
+    case 6:
+        if (densidade_pop1 < densidade_pop2) {
+            comparacao1 = 1;
+        } else if (densidade_pop1 > densidade_pop2) {
+            comparacao1 = 2;
+        } else {
+            comparacao1 = 0;
+        }
+        strcpy(nome_atributo1, "Densidade demográfica");
+        valor_atributo1Carta1 = densidade_pop1;
+        valor_atributo1Carta2 = densidade_pop2;
+        break;
+    default:
+        printf("Opção inválida!\n");
+        return 1;
+}
 
     // Switch para a escolha do segundo atributo
     printf("\n======== Escolha o segundo atributo: ========\n");
@@ -179,46 +215,82 @@ int main() {
     }
 
     switch (opcao2) {
-        case 1:
-            comparacao2 = (populacao1>populacao2) ? 1:0;
-            strcpy(nome_atributo2, "População");
-            break;
-        case 2:
-            comparacao2 = (area1>area2) ? 1:0;
-            strcpy(nome_atributo2, "Área");
-            valor_atributo2Carta1 = area1;
-            valor_atributo2Carta2 = area2;
-            break;
-        case 3:
-            comparacao2 = (pib1>pib2) ? 1:0;
-            strcpy(nome_atributo2, "PIB");
-            valor_atributo2Carta1 = pib1;
-            valor_atributo2Carta2 = pib2;
-            break;
-        case 4:
-            comparacao2 = (pib_per_capita1>pib_per_capita2) ? 1:0;
-            strcpy(nome_atributo2, "PIB per capita");
-            valor_atributo2Carta1 = pib_per_capita1;
-            valor_atributo2Carta2 = pib_per_capita2;
-            break;
-        case 5:
-            comparacao2 = (pontos_turisticos1>pontos_turisticos2) ? 1:0;
-            strcpy(nome_atributo2, "Pontos turísticos");
-            break;
-        case 6:
-            comparacao2 = (densidade_pop1<densidade_pop2) ? 1:0;
-            strcpy(nome_atributo2, "Densidade demográfica");
-            valor_atributo2Carta1 = densidade_pop1;
-            valor_atributo2Carta2 = densidade_pop2;
-            break;
-        default:
-            printf("Opção inválida!\n");
-            return 1;
-    }
+    case 1:
+        if (populacao1 > populacao2) {
+            comparacao2 = 1;
+        } else if (populacao1 < populacao2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "População");
+        break;
+    case 2:
+        if (area1 > area2) {
+            comparacao2 = 1;
+        } else if (area1 < area2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "Área");
+        valor_atributo2Carta1 = area1;
+        valor_atributo2Carta2 = area2;
+        break;
+    case 3:
+        if (pib1 > pib2) {
+            comparacao2 = 1;
+        } else if (pib1 < pib2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "PIB");
+        valor_atributo2Carta1 = pib1;
+        valor_atributo2Carta2 = pib2;
+        break;
+    case 4:
+        if (pib_per_capita1 > pib_per_capita2) {
+            comparacao2 = 1;
+        } else if (pib_per_capita1 < pib_per_capita2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "PIB per capita");
+        valor_atributo2Carta1 = pib_per_capita1;
+        valor_atributo2Carta2 = pib_per_capita2;
+        break;
+    case 5:
+        if (pontos_turisticos1 > pontos_turisticos2) {
+            comparacao2 = 1;
+        } else if (pontos_turisticos1 < pontos_turisticos2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "Pontos turísticos");
+        break;
+    case 6:
+        if (densidade_pop1 < densidade_pop2) {
+            comparacao2 = 1;
+        } else if (densidade_pop1 > densidade_pop2) {
+            comparacao2 = 2;
+        } else {
+            comparacao2 = 0;
+        }
+        strcpy(nome_atributo2, "Densidade demográfica");
+        valor_atributo2Carta1 = densidade_pop1;
+        valor_atributo2Carta2 = densidade_pop2;
+        break;
+    default:
+        printf("Opção inválida!\n");
+        return 1;
+}
+
 
     //Bloco abaixo mostra as atributos selecionados da carta 1 x carta 2
     printf("\n==========++ Resultado Final ++==========\n\n");
-    printf("%s x %s\n", nome_cidade1, nome_cidade2);
     printf("Atributos escolhidos: %s e %s\n", nome_atributo1, nome_atributo2);
     if (opcao1 == 1) { //Testa se opção1 tem valor 1 (Pontos turisticos), caso verdadeiro mostrará o valor_atributo em formato unsigned long int
         printf("Valores atributos 1: %lu   x   %lu\n", populacao1, populacao2);
@@ -238,12 +310,12 @@ int main() {
         
         
     //Resultato final das comparações - Se na comparacao1 e comparacao2 for "verdadeiro" carta 1 vence, se uma das comparações for "falso" é empate, se as forem "falso" Carta 2 Vence
-    if (comparacao1 && comparacao2) {
+    if (comparacao1 == 1 && comparacao2 == 1) {
         printf("Vencedor é... CARTA 1!!\n");
-    } else if (comparacao1 != comparacao2) {
-        printf("Empate!\n");
-    } else {
+    } else if (comparacao1 == 2 && comparacao2 == 2) {
         printf("Vencedor é... CARTA 2!!\n");
+    } else {
+        printf("Empate!\n");
     }
 
     return 0;
