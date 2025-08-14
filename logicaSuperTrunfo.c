@@ -55,8 +55,21 @@ int main() {
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &pontos_turisticos1);
 
-    densidade_pop1 = populacao1 / area1;
-    pib_per_capita1 = (pib1 * 1000000000.0f) / populacao1;
+    // Verificação de divisão por zero para densidade_pop1
+    if (area1 != 0.0f) {
+        densidade_pop1 = populacao1 / area1;
+    } else {
+        densidade_pop1 = 0.0f;
+        printf("Aviso: Área da Carta 1 é zero. Densidade Populacional definida como 0.\n");
+    }
+
+    // Verificação de divisão por zero para pib_per_capita1
+    if (populacao1 != 0UL) {
+        pib_per_capita1 = (pib1 * 1000000000.0f) / populacao1;
+    } else {
+        pib_per_capita1 = 0.0f;
+        printf("Aviso: População da Carta 1 é zero. PIB per Capita definido como 0.\n");
+    }
 
     // Cadastro da carta 2
     printf("\n\nCadastre a segunda carta.\n\n");
@@ -85,6 +98,22 @@ int main() {
     densidade_pop2 = populacao2 / area2;
     pib_per_capita2 = (pib2 * 1000000000.0f) / populacao2;
 
+    
+    // Verificação de divisão por zero para densidade_pop2
+    if (area2 != 0.0f) {
+        densidade_pop2 = populacao2 / area2;
+    } else {
+        densidade_pop2 = 0.0f;
+        printf("Aviso: Área da Carta 2 é zero. Densidade Populacional definida como 0.\n");
+    }
+
+    // Verificação de divisão por zero para pib_per_capita2
+    if (populacao2 != 0UL) {
+        pib_per_capita2 = (pib2 * 1000000000.0f) / populacao2;
+    } else {
+        pib_per_capita2 = 0.0f;
+        printf("Aviso: População da Carta 2 é zero. PIB per Capita definido como 0.\n");
+    }
 
 
     // Switch para escolha do primeiro atributo
@@ -155,7 +184,7 @@ int main() {
 
     switch (opcao2) {
         case 1:
-            comparacao2 = (populacao2>populacao2) ? 1:0;
+            comparacao2 = (populacao1>populacao2) ? 1:0;
             strcpy(nome_atributo2, "População");
             break;
         case 2:
