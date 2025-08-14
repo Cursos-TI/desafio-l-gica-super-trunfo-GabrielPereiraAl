@@ -95,10 +95,6 @@ int main() {
     printf("Digite a quantidade de pontos turísticos da cidade: ");
     scanf("%d", &pontos_turisticos2);
 
-    densidade_pop2 = populacao2 / area2;
-    pib_per_capita2 = (pib2 * 1000000000.0f) / populacao2;
-
-    
     // Verificação de divisão por zero para densidade_pop2
     if (area2 != 0.0f) {
         densidade_pop2 = populacao2 / area2;
@@ -235,7 +231,7 @@ int main() {
     if (opcao2 == 1) {
         printf("Valores atributos 2: %lu   x   %lu\n", populacao1, populacao2);
     } else if (opcao2 == 5) {
-        printf("Valores atributos 1: %d   x   %d\n", pontos_turisticos1, pontos_turisticos2);
+        printf("Valores atributos 2: %d   x   %d\n", pontos_turisticos1, pontos_turisticos2);
     } else {
         printf("Valores atributos 2: %.2f   x   %.2f\n", valor_atributo2Carta1, valor_atributo2Carta2);
     }
